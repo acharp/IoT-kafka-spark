@@ -1,0 +1,22 @@
+version: '2'
+services:
+  temperature-sensor:
+    build: ./producer/
+    environment:
+        KAFKA_SOCKET: host.docker.internal:9092
+        KAFKA_TOPIC: temperature
+        PRODUCER_ID: temperature-sensor
+
+  humidity-sensor:
+    build: ./producer/
+    environment:
+        KAFKA_SOCKET: host.docker.internal:9092
+        KAFKA_TOPIC: humidity
+        PRODUCER_ID: humidity-sensor
+
+  pressure-sensor:
+    build: ./producer/
+    environment:
+        KAFKA_SOCKET: host.docker.internal:9092
+        KAFKA_TOPIC: pressure
+        PRODUCER_ID: pressure-sensor
